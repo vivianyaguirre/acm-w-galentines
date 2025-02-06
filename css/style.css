@@ -1,0 +1,196 @@
+/*
+1. Global Styles: Sets the overall page layout and styling
+*/
+body {
+    display: flex; /* Centers content horizontally */
+    justify-content: center; /* Aligns content in the center */
+    align-items: center; /* Aligns content vertically */
+    height: 100vh; /* Full height viewport */
+    background-color: #fff; /* White background */
+    text-align: center; /* Centers text */
+    font-family: 'Dancing Script', cursive; /* Sets a cursive font */
+    color: #d63384; /* Sets primary text color */
+    cursor: url('image/red-heart.png'), auto; /* Custom heart cursor */
+
+}
+
+button, select, textarea {
+    cursor: url('image/red-heart.png'), auto; /* Applies heart cursor to form elements */
+}
+
+/*
+2. Envelope Animation: Handles the envelope's hover and click effects
+*/
+.envelope-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.envelope {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out;
+    filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.2)); /* Adds shadow */
+}
+
+.envelope:hover {
+    transform: scale(1.05); /* Slight increase in size when hovered */
+}
+
+.jump-spin {
+    animation: jumpSpin 1s ease-in-out forwards; /* Animates the envelope to spin and jump */
+}
+
+@keyframes jumpSpin {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-50px) rotate(180deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/*
+3. E-Card Styling: Controls the e-card's look and feel
+*/
+.ecard {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* E-Card Styling: Controls the e-card's look and feel */
+.ecard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 450px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border: 3px solid #ff69b4;
+    padding: 25px;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form Styling */
+.ecard-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Input Fields & Button Styling */
+textarea, input, button {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #d63384;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Adjust textarea */
+textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+/* Button Styling */
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background: #ff69b4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 12px 20px;
+}
+
+button:hover {
+    background: #ff1493;
+    transform: scale(1.05);
+}
+
+
+/*
+5. Additional Decorative Elements
+*/
+.subtext {
+    font-size: 14px;
+    color: #d63384;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.email-decoration {
+    width: 60px;
+    margin-bottom: 10px;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/*
+6. Thank You Page Styling
+*/
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*JS will make it move*/
+.hovering-heart {
+    width: 150px;
+    margin-bottom: 20px;
+    animation: hoverAnimation 1.5s infinite ease-in-out;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+    max-width: 400px;
+}
+
+@keyframes hoverAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
