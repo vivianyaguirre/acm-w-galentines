@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> <!-- 6. Links an external CSS file for styling -->
+    <title>Email Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+</head>
+<body>
+    <div class="ecard-container" id="ecardScreen">
+        <h2>💌 Galentine's E-Card Generator 💌</h2>
+        <img src="image/pink-heart.png" class="email-decoration" alt="Email Icon">
+         <p class="subtext">Create and send a sweet e-card to brighten someone's day! ✨</p>
+
+        <form id="emailForm" class="ecard-form">
+            <label for="text">📝 Your Name:</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+        
+            <label for="email">📧 Recipient's Email:</label>
+            <input type="email" id="email" placeholder="Recipient Email" required>
+            
+            <label for="message">💬 Your Message:</label>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+        
+            <div class ="button-container">
+                <button type="submit">✨ Generate & Send E-Card ✨</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        emailjs.init("9Wgx7aqz56I2A6oiJ"); // Replace with your EmailJS Public Key
+
+        document.getElementById("emailForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const templateParams = {
+                from_name: document.getElementById("name").value,
+                to_email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            };
+
+            emailjs.send("service_790dvza", "template_kafxqmm", templateParams)
+                .then(response => {
+                    alert("Email sent successfully!");
+                    window.location.href = "thankyou.html";
+                })
+                .catch(error => {
+                    alert("Failed to send email. Error: " + error.text);
+                });
+        });
+    </script>
+
+</body>
+</html>
+
